@@ -1,4 +1,5 @@
 fun main() {
+    // Testes da pilha simples/estática
     val s1 = Stack(5)
     println("Pilha vazia? ${s1.isEmpty()}")
     println("Pilha cheia? ${s1.isFull()}")
@@ -18,4 +19,9 @@ fun main() {
     println("Pilha cheia? ${s1.isFull()}")
     s1.update(10)
     println(s1.print())
+
+    // Testes da pilha de parênteses em uma expressão
+    val p1 = Parentheses()
+    println("Parênteses válidos? ${p1.checkValidParentheses("(2*(1+(5*2)))")}") // true
+    println("Parênteses válidos? ${p1.checkValidParentheses("(3*(4+2)")}")    // false
 }
