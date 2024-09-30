@@ -44,8 +44,8 @@ fun main() {
     println("Fila cheia? ${q1.isFull()}")
     println("___________________________")
 
-    println("Removendo dados da fila: ")
     // conforme vamos removendo os itens da fila, o ponteiro do inicio vai aumentando
+    println("Removendo dados da fila: ")
     println("Dado no inicio da fila: ${q1.front()}")
     println("___________________________")
     println("Dado retirado do inicio da fila: ${q1.dequeue()}")
@@ -56,7 +56,8 @@ fun main() {
     println("___________________________")
     println("Imprimindo os dados da fila: ")
     println(q1.print())
-    println("Visualizando o array após as operações: ") // o dado A não foi removido da fila, apenas o ponteiro de inicio foi alterado
+    // o dado A não foi removido da fila, apenas o ponteiro de inicio foi alterado
+    println("Visualizando o array após as operações: ")
     println(q1.getData().contentToString())
 
 
@@ -73,9 +74,9 @@ fun main() {
     println(q1.print())
     println("___________________________")
 
-    // como os dados não são devidamente removidos da fila, o código abaixo não irá funcionar pois o array não possui mais espaços vazios
-    q1.enqueue("G")
-    println("startPointer: ${q1.getStartPointer()}")
-    println("endPointer: ${q1.getEndPointer()}")
-    println("___________________________")
+    // como os dados não são devidamente removidos da fila, o código abaixo irá retornar um erro pois o array não possui mais espaços vazios
+//    q1.enqueue("G")
+//    println("startPointer: ${q1.getStartPointer()}")
+//    println("endPointer: ${q1.getEndPointer()}")
+//    println("___________________________")
 }

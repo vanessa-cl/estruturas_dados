@@ -39,12 +39,16 @@ class Parentheses: Stackable {
             } else if (char == ')') {
                 // se for um parêntese de fechamento, é verificado se a pilha está vazia
                 if (isEmpty()) {
+                    // se a pilha estiver vazia, a expressão é inválida pois não há parênteses de abertura correspondentes
                     return false
                 }
                 // se a pilha não estiver vazia, o parêntese de abertura correspondente é retirado da pilha
                 pop()
             }
         }
+        // o loop acabou e a pilha não está vazia, então a expressão é inválida
+        // OU
+        // o loop acabou e a pilha está vazia, então a expressão é válida
         return isEmpty()
     }
 }
