@@ -2,6 +2,13 @@ fun main() {
 
     var l1 = CircularStaticList(5)
 
+    l1.append("A")
+    println("Start Pointer: ${l1.getStartPointer()}")
+    println("End Pointer: ${l1.getEndPointer()}")
+    println("Quantity: ${l1.getQuantity()}")
+    print("Array após alterações: ")
+    println(l1.getList().contentToString())
+    println("___________________________")
     l1.append("B")
     println("Start Pointer: ${l1.getStartPointer()}")
     println("End Pointer: ${l1.getEndPointer()}")
@@ -16,7 +23,23 @@ fun main() {
     print("Array após alterações: ")
     println(l1.getList().contentToString())
     println("___________________________")
-    l1.append("E")
+    l1.append("D")
+    println("Start Pointer: ${l1.getStartPointer()}")
+    println("End Pointer: ${l1.getEndPointer()}")
+    println("Quantity: ${l1.getQuantity()}")
+    print("Array após alterações: ")
+    println(l1.getList().contentToString())
+    println("___________________________")
+//    l1.append("E")
+//    println("Start Pointer: ${l1.getStartPointer()}")
+//    println("End Pointer: ${l1.getEndPointer()}")
+//    println("Quantity: ${l1.getQuantity()}")
+//    print("Array após alterações: ")
+//    println(l1.getList().contentToString())
+//    println("___________________________")
+
+    // inserir "X" na posição 3
+    l1.insert(3,"X")
     println("Start Pointer: ${l1.getStartPointer()}")
     println("End Pointer: ${l1.getEndPointer()}")
     println("Quantity: ${l1.getQuantity()}")
@@ -25,31 +48,31 @@ fun main() {
     println("___________________________")
 
     // inserir "A" na posição 0
-    l1.insert(0,"A")
-    println("Start Pointer: ${l1.getStartPointer()}")
-    println("End Pointer: ${l1.getEndPointer()}")
-    println("Quantity: ${l1.getQuantity()}")
-    print("Array após alterações: ")
-    println(l1.getList().contentToString())
-    println("___________________________")
-
-    // inserir "D" na posição 3
-    l1.insert(3,"D")
-    println("Start Pointer: ${l1.getStartPointer()}")
-    println("End Pointer: ${l1.getEndPointer()}")
-    println("Quantity: ${l1.getQuantity()}")
-    print("Array após alterações: ")
-    println(l1.getList().contentToString())
-    println("___________________________")
-
-    // selecionar "B" na posição 1
-    println("Dado selecionado: ${l1.select(1)}")
-    println("Start Pointer: ${l1.getStartPointer()}")
-    println("End Pointer: ${l1.getEndPointer()}")
-    println("Quantity: ${l1.getQuantity()}")
-    print("Array após alterações: ")
-    println(l1.getList().contentToString())
-    println("___________________________")
+//    l1.insert(0,"A")
+//    println("Start Pointer: ${l1.getStartPointer()}")
+//    println("End Pointer: ${l1.getEndPointer()}")
+//    println("Quantity: ${l1.getQuantity()}")
+//    print("Array após alterações: ")
+//    println(l1.getList().contentToString())
+//    println("___________________________")
+//
+//    // inserir "D" na posição 3
+//    l1.insert(3,"D")
+//    println("Start Pointer: ${l1.getStartPointer()}")
+//    println("End Pointer: ${l1.getEndPointer()}")
+//    println("Quantity: ${l1.getQuantity()}")
+//    print("Array após alterações: ")
+//    println(l1.getList().contentToString())
+//    println("___________________________")
+//
+//    // selecionar "B" na posição 1
+//    println("Dado selecionado: ${l1.select(1)}")
+//    println("Start Pointer: ${l1.getStartPointer()}")
+//    println("End Pointer: ${l1.getEndPointer()}")
+//    println("Quantity: ${l1.getQuantity()}")
+//    print("Array após alterações: ")
+//    println(l1.getList().contentToString())
+//    println("___________________________")
 
     // atualizar "A" na posição 0 para "F"
 //    l1.update(0,"F")

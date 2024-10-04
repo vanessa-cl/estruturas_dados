@@ -43,6 +43,8 @@ class CircularStaticList(size: Int) : Listable {
                 for (i in pos until quantity) {
                     var previous = auxPointer - 1
 
+                    // como a lista é circular, se o ponteiro auxiliar for igual ao tamanho do array
+                    // o novo "auxiliar" será a posição 0 para manter a circularidade
                     if (auxPointer == list.size) {
                         auxPointer = 0
                     }
