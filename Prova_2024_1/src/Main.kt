@@ -6,35 +6,39 @@ import getQuestoesProva
 
 fun main() {
     // Testes dos métodos da classe ListaEstaticaCircular
-//    val l1 = ListaEstaticaCircular()
+    val l1 = ListaEstaticaCircular()
 
     // 2.
-//    l1.inserirDado(0, "B")
-//    println("Array após alterações: ${l1.getDados().contentToString()}")
-//    println("___________________________")
-//
-//    l1.inserirDado(1, "C")
-//    println("Array após alterações: ${l1.getDados().contentToString()}")
-//    println("___________________________")
-//
-//    l1.inserirDado(2, "D")
-//    println("Array após alterações: ${l1.getDados().contentToString()}")
-//    println("___________________________")
-//
-//    l1.inserirDado(3, "E")
-//    println("Array após alterações: ${l1.getDados().contentToString()}")
-//    println("___________________________")
-//
-//    l1.inserirDado(4, "F")
-//    println("Array após alterações: ${l1.getDados().contentToString()}")
-//    println("___________________________")
+    l1.inserirDado(0, "B")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
+
+    l1.inserirDado(1, "C")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
+
+    l1.inserirDado(2, "D")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
+
+    l1.inserirDado(3, "E")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
+
+    l1.inserirDado(4, "F")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
+
+    l1.inserirDado(4, "A")
+    println("Array após alterações: ${l1.getDados().contentToString()}")
+    println("___________________________")
 
     // 0.
 //    l1.inserirDadoInicio("A");
 //    println("Array após alterações: ${l1.getDados().contentToString()}")
 //    println("___________________________")
 //
-//    // 1.
+    // 1.
 //    l1.inserirDadoFim("F")
 //    println("Array após alterações: ${l1.getDados().contentToString()}")
 //    println("___________________________")
