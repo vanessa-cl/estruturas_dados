@@ -1,5 +1,6 @@
 fun main() {
     var heap = MinHeap(10)
+    println(heap.print())
     heap.insert(10)
     heap.insert(5)
     heap.insert(2)

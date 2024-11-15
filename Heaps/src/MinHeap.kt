@@ -123,18 +123,17 @@ class MinHeap(private val size: Int = 10) : Heaping {
     override fun get(): Long? {
         var root: Long? = null
         if (!isEmpty()) {
-            root = heap[0]
-            return root
+            root = heap[0]              // o menor valor é o primeiro item do heap, que é a raiz
         } else {
             println("Heap is empty!")
-            return root
         }
+        return root
     }
 
     override fun update(data: Long) {
         if (!isEmpty()) {
-            heap[0] = data
-            heapifyDown(0)
+            heap[0] = data               // atualiza o valor da raiz
+            heapifyDown(0)        // reorganiza o heap a partir do novo valor da raiz
         } else {
             println("Heap is empty!")
         }
@@ -143,15 +142,15 @@ class MinHeap(private val size: Int = 10) : Heaping {
     override fun remove(): Long? {
         var root: Long? = null
         if (!isEmpty()) {
-            root = heap[0]
-            heap[0] = heap[endPointer]
+            root = heap[0]                  // o menor valor é o primeiro item do heap, que é a raiz
+            heap[0] = heap[endPointer]      // troca o item a ser removido pelo último item
+            heap[endPointer] = 0            // altera o item a ser removido para 0
             endPointer = endPointer.dec()   // decrementa o ponteiro de fim
             heapifyDown(0)
-            return root
         } else {
             println("Heap is empty!")
-            return root
         }
+        return root
     }
 
     override fun print(): String {
