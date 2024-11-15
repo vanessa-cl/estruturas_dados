@@ -1,5 +1,4 @@
-class MinHeap(private val size: Int = 10) : Heaping {
-
+class MaxHeap(private val size: Int = 10): Heaping {
     private var heap = LongArray(size) { 0 }   // cria um array de longs com o tamanho especificado
     private var endPointer = -1                // e inicializa todos os valores com 0
 
@@ -18,7 +17,7 @@ class MinHeap(private val size: Int = 10) : Heaping {
 
         while (childIndex != 0) {
             val parentIndex = parentIndex(childIndex)
-            if (heap[parentIndex] > heap[childIndex]) {  // se o pai for maior que o filho
+            if (heap[parentIndex] < heap[childIndex]) {  // se o pai for menor que o filho
                 var temp = heap[parentIndex]            // troca os valores
                 heap[parentIndex] = heap[childIndex]
                 heap[childIndex] = temp
@@ -29,75 +28,36 @@ class MinHeap(private val size: Int = 10) : Heaping {
         }
     }
 
-    private fun recursiveHeapifyUp(index: Int) {
-        if (index == 0) return
-        val parentIndex = parentIndex(index)
-        if (heap[parentIndex] > heap[index]) {
-            var temp = heap[parentIndex]
-            heap[parentIndex] = heap[index]
-            heap[index] = temp
-            recursiveHeapifyUp(parentIndex)
-        }
-    }
-
     private fun heapifyDown(index: Int) {
         var parentIndex = index
 
         while (true) {
             var leftChildIndex = leftChildIndex(parentIndex)
             var rightChildIndex = rightChildIndex(parentIndex)
-            var smallestIndex = parentIndex
+            var biggestIndex = parentIndex
 
-            // verifica se o índice do filho esquerdo for válido (menor que o ponteiro de fim) e o valor do filho esquerdo for menor que o valor do pai
-            if (leftChildIndex <= endPointer && heap[leftChildIndex] < heap[smallestIndex]) {
-                // então o índice do menor valor é o do filho esquerdo
-                smallestIndex = leftChildIndex
+            // verifica se o índice do filho esquerdo for válido (menor que o ponteiro de fim) e o valor do pai é menor que o valor do filho esquerdo
+            if (leftChildIndex <= endPointer && heap[biggestIndex] < heap[leftChildIndex]) {
+                // então o índice do maior valor é o do filho esquerdo
+                biggestIndex = leftChildIndex
             }
 
-            // verifica se o índice do filho direito for válido (menor que o ponteiro de fim) e o valor do filho direito for menor que o valor do pai
-            if (rightChildIndex <= endPointer && heap[rightChildIndex] < heap[smallestIndex]) {
-                // então o índice do menor valor é o do filho direito
-                smallestIndex = rightChildIndex
+            // verifica se o índice do filho direito for válido (menor que o ponteiro de fim) e o valor do pai é menor que o valor do filho direito
+            if (rightChildIndex <= endPointer && heap[biggestIndex] < heap[rightChildIndex]) {
+                // então o índice do maior valor é o do filho direito
+                biggestIndex = rightChildIndex
             }
 
             // se o índice do menor valor for diferente do índice do pai
-            if (smallestIndex != parentIndex) {
+            if (biggestIndex != parentIndex) {
                 // troca os valores
                 var temp = heap[parentIndex]
-                heap[parentIndex] = heap[smallestIndex]
-                heap[smallestIndex] = temp
-                parentIndex = smallestIndex
+                heap[parentIndex] = heap[biggestIndex]
+                heap[biggestIndex] = temp
+                parentIndex = biggestIndex // atualiza o índice do pai
             } else {
                 break // se o índice do menor valor for igual ao índice do pai, então o heap está organizado
             }
-        }
-    }
-
-    private fun recursiveHeapifyDown(index: Int) {
-        var parentIndex = index
-        var leftChildIndex = leftChildIndex(parentIndex)
-        var rightChildIndex = rightChildIndex(parentIndex)
-        var smallestIndex = parentIndex
-
-        // verifica se o índice do filho esquerdo for válido (menor que o ponteiro de fim) e o valor do filho esquerdo for menor que o valor do pai
-        if (leftChildIndex <= endPointer && heap[leftChildIndex] < heap[smallestIndex]) {
-            // então o índice do menor valor é o do filho esquerdo
-            smallestIndex = leftChildIndex
-        }
-
-        // verifica se o índice do filho direito for válido (menor que o ponteiro de fim) e o valor do filho direito for menor que o valor do pai
-        if (rightChildIndex <= endPointer && heap[rightChildIndex] < heap[smallestIndex]) {
-            // então o índice do menor valor é o do filho direito
-            smallestIndex = rightChildIndex
-        }
-
-        // se o índice do menor valor for diferente do índice do pai
-        if (smallestIndex != parentIndex) {
-            // troca os valores
-            var temp = heap[parentIndex]
-            heap[parentIndex] = heap[smallestIndex]
-            heap[smallestIndex] = temp
-            recursiveHeapifyDown(smallestIndex)
         }
     }
 
@@ -124,7 +84,7 @@ class MinHeap(private val size: Int = 10) : Heaping {
     override fun get(): Long? {
         var root: Long? = null
         if (!isEmpty()) {
-            root = heap[0]              // o menor valor é o primeiro item do heap, que é a raiz
+            root = heap[0]              // o maior valor é o primeiro item do heap, que é a raiz
         } else {
             println("Heap is empty!")
         }
@@ -143,7 +103,7 @@ class MinHeap(private val size: Int = 10) : Heaping {
     override fun remove(): Long? {
         var root: Long? = null
         if (!isEmpty()) {
-            root = heap[0]                  // o menor valor é o primeiro item do heap, que é a raiz
+            root = heap[0]                  // o maior valor é o primeiro item do heap, que é a raiz
             heap[0] = heap[endPointer]      // troca o item a ser removido pelo último item
             heap[endPointer] = 0            // altera o item a ser removido para 0
             endPointer = endPointer.dec()   // decrementa o ponteiro de fim
