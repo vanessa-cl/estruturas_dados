@@ -1,4 +1,4 @@
-class MaxHeap(private val size: Int = 10): Heaping {
+open class MaxHeap(private val size: Int = 10): Heaping<Long> {
     private var heap = LongArray(size) { 0 }   // cria um array de longs com o tamanho especificado
     private var endPointer = -1                // e inicializa todos os valores com 0
 

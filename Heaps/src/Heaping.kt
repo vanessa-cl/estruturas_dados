@@ -1,9 +1,9 @@
-interface Heaping {
+interface Heaping<T> {
     // métodos principais
-    fun insert(data: Long)  // C -> Create
-    fun get(): Long?        // R -> Read
-    fun update(data: Long)  // U -> Update
-    fun remove(): Long?     // D -> Delete
+    fun insert(data: T)  // C -> Create
+    fun get(): T?        // R -> Read
+    fun update(data: T)  // U -> Update
+    fun remove(): T?     // D -> Delete
 
     // métodos auxiliares
     fun print(): String
