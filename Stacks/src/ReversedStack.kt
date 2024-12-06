@@ -1,4 +1,4 @@
-class ReversedStack(size: Int) : Stackable {
+//class ReversedStack(size: Int) : Stackable {
     // variaveis de instância/globais
 //    private var stack: Array<Any?>
 //    private var topPointer: Int?
@@ -80,4 +80,4 @@ class ReversedStack(size: Int) : Stackable {
 //        }
 //        return aux
 //    }
-}
+//}
